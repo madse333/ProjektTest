@@ -39,6 +39,8 @@ public class Controller {
 	 */
 	public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
 			Patient patient, Laegemiddel laegemiddel, double antal) {
+		// TODO
+		PN pn = new PN(startDen,slutDen,patient,laegemiddel,antal);
 		return null;
 	}
 
