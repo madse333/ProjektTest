@@ -97,7 +97,11 @@ public class Controller {
 	 * Pre: ordination og dato er ikke null
 	 */
 	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-		ordination.givDosis(dato);
+		if (!ordination.givDosis(dato)){
+			throw new IllegalArgumentException();
+		}else{
+			ordination.givDosis(dato);
+		}
 	}
 
 	/**
