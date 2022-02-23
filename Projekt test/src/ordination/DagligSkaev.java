@@ -6,7 +6,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class DagligSkaev extends Ordination {
-    // TODO
     // composition --> 0..* Dosis
     private final ArrayList<Dosis> doser = new ArrayList<>();
 
