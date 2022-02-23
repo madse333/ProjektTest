@@ -1,19 +1,35 @@
 package ordination;
-
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
 
-public class DagligFast {
-    // TODO
+public class DagligFast extends Ordination {
+
+    //Link attribut
     private final Dosis[] doser = new Dosis[4];
-    private int antalDoser = 0;
 
-    public ArrayList<Dosis> getDoser(){
-        return new ArrayList<>(doser);
+    public DagligFast(LocalDate startDen, LocalDate slutDen){
+        super(startDen,slutDen);
+    }
+    public Dosis[] getDoser(){return doser;}
+
+    public Dosis createDosis(LocalTime tid, double antal){
+        Dosis dosis = new Dosis(tid,antal);
+
+        return dosis;
     }
 
-    public void opretDosis(LocalTime tid, double antal){
-        doser[antalDoser] = new Dosis(tid,antal);
-        antalDoser++;
+    @Override
+    public double samletDosis() {
+        return 0;
+    }
+
+    @Override
+    public double doegnDosis() {
+        return 0;
+    }
+
+    @Override
+    public String getType() {
+        return null;
     }
 }
