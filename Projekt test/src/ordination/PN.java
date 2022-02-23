@@ -1,11 +1,13 @@
 package ordination;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class PN extends Ordination{
 
     private double antalEnheder;
     private int antalGangeGivet;
+    private LocalDate sidstGivet;
 
     public PN(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double antalEnheder) {
         super(startDen, slutDen, laegemiddel);
@@ -26,8 +28,7 @@ public class PN extends Ordination{
     }
 
     public double doegnDosis() {
-        // TODO
-        return 0.0;
+        return (antalGangeGivet * antalEnheder) / (double) ChronoUnit.DAYS.between(getStartDen(), sidstGivet);
     }
 
 
