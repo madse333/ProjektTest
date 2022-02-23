@@ -13,7 +13,7 @@ public class DagligSkaev extends Ordination {
         return new ArrayList<>(doser);
     }
 
-    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel,
+    public DagligSkaev(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
                        LocalTime[] klokkeSlet, double[] antalEnheder) {
         super(startDen,slutDen,laegemiddel);
     }
