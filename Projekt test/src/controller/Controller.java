@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.ObjectStreamException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -74,8 +75,19 @@ public class Controller {
 	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			LocalTime[] klokkeSlet, double[] antalEnheder) {
-		// TODO
-		return null;
+
+		if(startDen.isAfter(slutDen)){
+			throw new IllegalArgumentException();
+		}
+		else if(klokkeSlet.length != antalEnheder.length){
+			throw new IllegalArgumentException();
+			}
+
+		else{
+			DagligSkaev dagligSkaev = new DagligSkaev(startDen, slutDen, patient, laegemiddel, klokkeSlet, antalEnheder);
+			return dagligSkaev;
+		}
+
 	}
 
 	/**
