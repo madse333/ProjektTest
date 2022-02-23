@@ -2,13 +2,10 @@ package controller;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
-import ordination.DagligFast;
-import ordination.DagligSkaev;
-import ordination.Laegemiddel;
-import ordination.PN;
-import ordination.Patient;
+import ordination.*;
 import storage.Storage;
 
 public class Controller {
@@ -99,8 +96,17 @@ public class Controller {
 	 */
 	public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
 			double vægtSlut, Laegemiddel laegemiddel) {
-		// TODO
-		return 0;
+		int antal = 0;
+		for (Patient p : storage.getAllPatienter()) {
+			if (p.getVaegt() >= vægtStart && p.getVaegt() <= vægtSlut) {
+				for (Ordination o : p.getOrdinationer()){
+					if (o.getLaegemiddel() == laegemiddel){
+						antal++;
+					}
+				}
+			}
+		}
+		return antal;
 	}
 
 	public List<Patient> getAllPatienter() {
