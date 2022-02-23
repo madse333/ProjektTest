@@ -4,7 +4,7 @@ import java.time.LocalTime;
 
 public class DagligFast extends Ordination {
 
-    //Link attribut
+    // composition --> 0..4 Dosis
     private final Dosis[] doser = new Dosis[4];
     private int antalDoser = 0;
 
