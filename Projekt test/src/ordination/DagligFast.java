@@ -14,9 +14,13 @@ public class DagligFast extends Ordination {
     public Dosis[] getDoser(){return doser;}
 
     public void createDosis(LocalTime tid, double antal){
-        Dosis dosis = new Dosis(tid,antal);
-        doser[antalDoser] = dosis;
-        antalDoser++;
+        try{
+            Dosis dosis = new Dosis(tid,antal);
+            doser[antalDoser] = dosis;
+            antalDoser++;
+        }catch(ArrayIndexOutOfBoundsException ex){
+            System.out.println("Exception: " + ex.getMessage() + " sikkert for mange doser tilføjet.");
+        }
     }
 
     @Override
