@@ -75,7 +75,7 @@ public class Controller {
 	 * Pre: ordination og dato er ikke null
 	 */
 	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-		// TODO
+		ordination.givDosis(dato);
 	}
 
 	/**
