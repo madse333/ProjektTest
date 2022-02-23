@@ -98,6 +98,9 @@ public class Controller {
 	 */
 	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
 		ordination.givDosis(dato);
+
+
+
 	}
 
 	/**
