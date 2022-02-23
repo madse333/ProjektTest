@@ -85,8 +85,15 @@ public class Controller {
 	 * Pre: patient og lægemiddel er ikke null
 	 */
 	public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
-		//TODO
-		return 0;
+		if (patient.getVaegt() > 120){
+			return patient.getVaegt() * laegemiddel.getEnhedPrKgPrDoegnTung();
+		}
+		else if(patient.getVaegt() >= 25){
+			return patient.getVaegt() * laegemiddel.getEnhedPrKgPrDoegnNormal();
+		}
+		else{
+			return patient.getVaegt() * laegemiddel.getEnhedPrKgPrDoegnLet();
+		}
 	}
 
 	/**
