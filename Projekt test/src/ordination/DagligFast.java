@@ -19,7 +19,7 @@ public class DagligFast extends Ordination {
             doser[antalDoser] = dosis;
             antalDoser++;
         }catch(ArrayIndexOutOfBoundsException ex){
-            System.out.println("Exception: " + ex.getMessage() + " sikkert for mange doser tilføjet.");
+            System.out.println("Exception || " + ex.getMessage() + " || sikkert for mange doser tilføjet.");
         }
     }
 
