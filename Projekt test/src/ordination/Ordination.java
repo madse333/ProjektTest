@@ -11,7 +11,7 @@ public abstract class Ordination {
     private Laegemiddel laegemiddel;
 
 
-    public Ordination(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, Patient patient) {
+    public Ordination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel) {
         this.startDen = startDen;
         this.slutDen = slutDen;
         this.laegemiddel = laegemiddel;
