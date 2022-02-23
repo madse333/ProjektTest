@@ -52,7 +52,7 @@ public class PN extends Ordination{
     }
 
     public String getType(){
-        return "PN";
+        return getLaegemiddel().getEnhed();
     }
 
     public double getAntalEnheder() {
