@@ -40,12 +40,7 @@ public class PN extends Ordination{
 
 
     public double samletDosis() {
-        double samletdosis = 0.0
-
-
-
-
-        return 0.0;
+        return antalGangeGivet*antalEnheder;
     }
 
     /**
