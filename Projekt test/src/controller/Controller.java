@@ -49,8 +49,13 @@ public class Controller {
 			LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
-		// TODO
-		return null;
+		if (startDen.isAfter(slutDen)){
+			throw new IllegalArgumentException();
+		}
+		else{
+			DagligFast dagligFast = new DagligFast(startDen,slutDen, patient,laegemiddel,morgenAntal,middagAntal,aftenAntal,natAntal);
+			return dagligFast;
+		}
 	}
 
 	/**
