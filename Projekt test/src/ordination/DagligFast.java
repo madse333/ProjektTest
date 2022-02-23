@@ -52,6 +52,6 @@ public class DagligFast extends Ordination {
 
     @Override
     public String getType() {
-        return "Daglig Fast";
+        return getLaegemiddel().getEnhed();
     }
 }
