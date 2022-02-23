@@ -36,6 +36,6 @@ public class DagligSkaev extends Ordination {
 
     @Override
     public String getType() {
-        return null;
+        return getLaegemiddel().getEnhed();
     }
 }
