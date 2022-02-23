@@ -6,16 +6,17 @@ public class DagligFast extends Ordination {
 
     //Link attribut
     private final Dosis[] doser = new Dosis[4];
+    private int antalDoser = 0;
 
-    public DagligFast(LocalDate startDen, LocalDate slutDen){
-        super(startDen,slutDen);
+    public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel){
+        super(startDen,slutDen, laegemiddel);
     }
     public Dosis[] getDoser(){return doser;}
 
-    public Dosis createDosis(LocalTime tid, double antal){
+    public void createDosis(LocalTime tid, double antal){
         Dosis dosis = new Dosis(tid,antal);
-
-        return dosis;
+        doser[antalDoser] = dosis;
+        antalDoser++;
     }
 
     @Override
