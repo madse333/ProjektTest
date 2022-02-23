@@ -31,7 +31,7 @@ public class PN extends Ordination{
             return true;
         }
 
-        return false;   
+        return false;
     }
 
     public double doegnDosis() {
@@ -40,10 +40,7 @@ public class PN extends Ordination{
 
 
     public double samletDosis() {
-        double samletdosis = 0.0;
-
-
-        return 0.0;
+        return antalGangeGivet*antalEnheder;
     }
 
     /**
