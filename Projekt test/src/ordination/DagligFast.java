@@ -8,7 +8,7 @@ public class DagligFast extends Ordination {
 
     // composition --> 0..4 Dosis
     private final Dosis[] doser = new Dosis[4];
-    private int antalDoser = 0;
+//    private int antalDoser = 0;
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Laegemiddel laegemiddel, double morgenAntal,
                       double middagsAntal, double aftenAntal, double natAntal){
