@@ -15,7 +15,8 @@ public class PN {
      */
     public boolean givDosis(LocalDate givesDen) {
         // TODO
-        return false;   
+        return false;
+
     }
 
     public double doegnDosis() {
