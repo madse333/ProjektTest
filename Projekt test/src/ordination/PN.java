@@ -51,8 +51,7 @@ public class PN extends Ordination{
      * @return
      */
     public int getAntalGangeGivet() {
-        // TODO
-        return-1;
+        return dageGivet.size();
     }
 
     public String getType(){
