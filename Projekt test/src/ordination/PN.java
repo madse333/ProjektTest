@@ -26,7 +26,7 @@ public class PN extends Ordination{
 
     public boolean givDosis(LocalDate givesDen){
         if(givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen())){
-            dageGivet.add(givesDen)
+            dageGivet.add(givesDen);
             antalGangeGivet++;
             return true;
         }
@@ -40,7 +40,7 @@ public class PN extends Ordination{
 
 
     public double samletDosis() {
-        double samletdosis = 0.0;
+        double samletdosis = 0.0
 
 
 
