@@ -102,10 +102,6 @@ public class Controller {
 		}else{
 			ordination.givDosis(dato);
 		}
-		ordination.givDosis(dato);
-
-
-
 	}
 
 	/**
