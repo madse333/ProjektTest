@@ -38,7 +38,7 @@ public class Controller {
 	public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
 			Patient patient, Laegemiddel laegemiddel, double antal) {
 		if (startDen.isAfter(slutDen)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Start dato er efter slut dato");
 		} else {
 			PN pn = new PN(startDen,slutDen,patient,laegemiddel,antal);
 			return pn;
@@ -56,7 +56,7 @@ public class Controller {
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
 		if (startDen.isAfter(slutDen)){
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Start dato er efter slut dato");
 		}
 		else{
 			DagligFast dagligFast = new DagligFast(startDen,slutDen, patient,laegemiddel,morgenAntal,middagAntal,aftenAntal,natAntal);
