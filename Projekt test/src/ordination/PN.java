@@ -37,7 +37,7 @@ public class PN extends Ordination{
 
     public double doegnDosis() {
         if (!dageGivet.isEmpty()) {
-            return (dageGivet.size() * antalEnheder) / (double) ChronoUnit.DAYS.between(getStartDen(), dageGivet.get(dageGivet.size()-1));
+            return (dageGivet.size() * antalEnheder) / ((double) ChronoUnit.DAYS.between(getStartDen(), dageGivet.get(dageGivet.size()-1))+1);
         }
         else{
             return 0;
