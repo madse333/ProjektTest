@@ -9,13 +9,13 @@ class PNTest {
     @org.junit.jupiter.api.Test
     void givDosis() {
         // Arrange
-        Patient patient1 = new Patient("050972-1233", "Hans Jørgensen", 89.4);
+        Patient patient = new Patient("050972-1233", "Hans Jørgensen", 89.4);
 
         Laegemiddel laegemiddel = new Laegemiddel("Acetylsalicylsyre",0.5,1,
-                2,"Stuk");
+                2,"Styk");
 
         PN pn = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,10),
-                patient1, laegemiddel, 2);
+                patient, laegemiddel, 2);
 
         // Act
         boolean TC1 = pn.givDosis(LocalDate.of(2010,2,1));
@@ -33,6 +33,20 @@ class PNTest {
 
     @org.junit.jupiter.api.Test
     void doegnDosis() {
+        // Arrange
+        Patient patient = new Patient("050972-1233", "Hans Jørgensen", 89.4);
+
+        Laegemiddel laegemiddel = new Laegemiddel("Acetylsalicylsyre",0.5,1,
+                1,"Styk");
+
+        PN pn = new PN(LocalDate.of(2010,1,1),LocalDate.of(2010,1,5),
+                patient, laegemiddel, 2);
+
+        // Act
+        double TC5 = pn.doegnDosis();
+
+        // Assert
+        assertEquals(0,TC5);
 
     }
 
