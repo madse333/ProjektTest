@@ -21,21 +21,25 @@ class DagligSkaevTest {
         double[] enhed1 = {0.5,0.5,0.5,0.5};
         double[]enhed2 = {0.0, 0.0, 0.0, 0.0};
         double[]enhed3 = {10.0, 10.0, 10.0, 10.0};
+        double[]enhed4 = {-3.0,-3.0,-3.0,-3.0};
 
 
 
         DagligSkaev dagligSkaev = new DagligSkaev(LocalDate.of(2001,01,01), LocalDate.of(2001, 01, 03), patient1, laegemiddel , times, enhed1);
         DagligSkaev dagligSkaev1 = new DagligSkaev(LocalDate.of(2001, 01, 03), LocalDate.of(2001, 07,01), patient1, laegemiddel, times, enhed2);
         DagligSkaev dagligSkaev2 = new DagligSkaev(LocalDate.of(2001, 01, 10), LocalDate.of(2001, 01,8), patient1, laegemiddel, times, enhed3);
+        DagligSkaev dagligSkaev3= new DagligSkaev(LocalDate.of(2001, 01, 10), LocalDate.of(2001, 01,13), patient1, laegemiddel, times, enhed4);
 
         double ac1 = dagligSkaev.samletDosis();
         double ac2 = dagligSkaev1.samletDosis();
         double ac3 = dagligSkaev2.samletDosis();
+        double ac4 = dagligSkaev3.samletDosis();
 
 
         assertEquals(4, ac1);
         assertEquals(0, ac2);
         assertEquals(-80, ac3);
+        assertEquals(-36, ac4);
 
 
 
