@@ -60,7 +60,7 @@ void setup(){
         assertEquals("Forkert dato.", ex.getMessage());
     }
 
-    @Test
+    /*@Test
     public void antalOrdinationerPrVægtPrLægemiddel() {
         Patient patient1 = controller.opretPatient("121256-0512", "Jane Jensen", 63.4);
         Patient patient2 = controller.opretPatient("070985-1153", "Finn Madsen", 83.2);
@@ -80,5 +80,5 @@ void setup(){
         assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(25,90,laegemiddel1),0.01);
         assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(0,65,laegemiddel1),0.01);
         assertEquals(0,controller.antalOrdinationerPrVægtPrLægemiddel(80,120,laegemiddel1),0.01);
-    }
+    }*/
 }
