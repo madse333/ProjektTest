@@ -10,8 +10,8 @@ public class PN extends Ordination{
     private int antalGangeGivet;
     ArrayList<LocalDate> dageGivet = new ArrayList();
 
-    public  PN(LocalDate startDen, LocalDate slutDen, double antalEnheder) {
-        super(startDen, slutDen);
+    public PN(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, double antalEnheder) {
+        super(startDen, slutDen, patient, laegemiddel);
         this.antalEnheder = antalEnheder;
         this.antalGangeGivet = 0;
     }
@@ -25,11 +25,12 @@ public class PN extends Ordination{
      */
 
     public boolean givDosis(LocalDate givesDen){
-        if(givesDen.isEqual(getStartDen()) && givesDen.isBefore(getSlutDen())){
+        if((givesDen.isEqual(getStartDen()) && givesDen.isBefore(getSlutDen())) || givesDen.isAfter(getStartDen())
+                && givesDen.isEqual(getSlutDen())){
             dageGivet.add(givesDen);
             antalGangeGivet++;
             return true;
-        }
+        } else
 
         return false;
     }
