@@ -96,11 +96,11 @@ public class Controller {
 	 * IllegalArgumentException
 	 * Pre: ordination og dato er ikke null
 	 */
-	public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
+	public boolean ordinationPNAnvendt(PN ordination, LocalDate dato) {
 		if (!ordination.givDosis(dato)){
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Forkert dato.");
 		}else{
-			ordination.givDosis(dato);
+			return ordination.givDosis(dato);
 		}
 	}
 

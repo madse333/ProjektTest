@@ -49,11 +49,14 @@ void setup(){
     void anvendtPNOrdination(){
         //Arrange
         Patient patient1 = new Patient("121256-0512", "Jane Jensen", 24);
-        Patient patient2 = new Patient("121256-0512", "Jane Jensen", 24);
         Laegemiddel l1 = new Laegemiddel("Testmiddel", 1,1,1,"Styk");
-        //Ordination o1 = new PN(LocalDate.of(2010, 01,01), LocalDate.of(2010,01,10), 1);
-        //Act
-
-        //Assert
+        PN o1 = new PN(LocalDate.of(2010, 01,01), LocalDate.of(2010,01,10), patient1, l1, 1);
+        //Act/Assert
+        assertTrue(controller.ordinationPNAnvendt(o1, LocalDate.of(2010,01,01)));
+        assertTrue(controller.ordinationPNAnvendt(o1, LocalDate.of(2010,01,10)));
+        Exception ex  = assertThrows(IllegalArgumentException.class, () -> {controller.ordinationPNAnvendt(o1, LocalDate.of(2009,12,31));});
+        assertEquals("Forkert dato.", ex.getMessage());
+        Exception ex1 = assertThrows(IllegalArgumentException.class, () -> {controller.ordinationPNAnvendt(o1, LocalDate.of(2010,01,10));});
+        assertEquals("Forkert dato.", ex.getMessage());
     }
 }
