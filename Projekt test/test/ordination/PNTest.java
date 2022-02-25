@@ -14,8 +14,8 @@ class PNTest {
         Laegemiddel laegemiddel = new Laegemiddel("Acetylsalicylsyre",0.5,1,
                 2,"Stuk");
 
-        PN pn = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,10), patient1, laegemiddel,
-                2);
+        PN pn = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,10),
+                patient1, laegemiddel, 2);
 
         // Act
         boolean TC1 = pn.givDosis(LocalDate.of(2010,2,1));

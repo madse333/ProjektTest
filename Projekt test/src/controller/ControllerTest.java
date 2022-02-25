@@ -1,9 +1,13 @@
 package controller;
 
 import ordination.Laegemiddel;
+import ordination.Ordination;
+import ordination.PN;
 import ordination.Patient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -39,7 +43,17 @@ void setup(){
         assertEquals(250, TC3);
         assertEquals(-5, TC4);
 
+    }
 
+    @Test
+    void anvendtPNOrdination(){
+        //Arrange
+        Patient patient1 = new Patient("121256-0512", "Jane Jensen", 24);
+        Patient patient2 = new Patient("121256-0512", "Jane Jensen", 24);
+        Laegemiddel l1 = new Laegemiddel("Testmiddel", 1,1,1,"Styk");
+        //Ordination o1 = new PN(LocalDate.of(2010, 01,01), LocalDate.of(2010,01,10), 1);
+        //Act
 
+        //Assert
     }
 }
