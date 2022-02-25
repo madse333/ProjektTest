@@ -15,15 +15,6 @@ class DagligFastTest {
             2,"Styk");
 
 
-    @BeforeEach
-    void setUp() {
-
-    }
-
-    @Test
-    void getDoser() {
-    }
-
     @Test
     void samletDosis() {
         dagligFast = new DagligFast(LocalDate.of(2001,1,1),LocalDate.of(2001,1,3),patient,laegemiddel, 2,1 ,1 ,1);
@@ -42,7 +33,4 @@ class DagligFastTest {
         assertEquals(16.5,dagligFast.doegnDosis());
     }
 
-    @Test
-    void getType() {
-    }
 }
