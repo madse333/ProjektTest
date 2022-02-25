@@ -57,8 +57,8 @@ void setup(){
         assertTrue(controller.ordinationPNAnvendt(o1, LocalDate.of(2010,01,10)));
         Exception ex  = assertThrows(IllegalArgumentException.class, () -> {controller.ordinationPNAnvendt(o1, LocalDate.of(2009,12,31));});
         assertEquals("Forkert dato.", ex.getMessage());
-        Exception ex1 = assertThrows(IllegalArgumentException.class, () -> {controller.ordinationPNAnvendt(o1, LocalDate.of(2010,01,10));});
-        assertEquals("Forkert dato.", ex.getMessage());
+        Exception ex1 = assertThrows(IllegalArgumentException.class, () -> {controller.ordinationPNAnvendt(o1, LocalDate.of(2010,01,11));});
+        assertEquals("Forkert dato.", ex1.getMessage());
     }
 
 

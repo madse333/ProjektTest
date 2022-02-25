@@ -60,15 +60,18 @@ class PNTest {
 
         PN pn = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,2),
                 patient, laegemiddel, 1);
-        pn.setAntalGangeGivet(1);
+       pn.givDosis(LocalDate.of(2010,2,1));
 
         PN pn1 = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,1),
                 patient,laegemiddel,1);
-        pn1.setAntalGangeGivet(1);
+        pn1.givDosis(LocalDate.of(2010,2,1));
+        //pn1.setAntalGangeGivet(1);
 
         PN pn2 = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,1),
                 patient,laegemiddel,-1);
-        pn2.setAntalGangeGivet(3);
+        pn2.givDosis(LocalDate.of(2010,2,1));
+        pn2.givDosis(LocalDate.of(2010,2,1));
+        pn2.givDosis(LocalDate.of(2010,2,1));
 
         // Act
         double TC1 = pn.samletDosis();

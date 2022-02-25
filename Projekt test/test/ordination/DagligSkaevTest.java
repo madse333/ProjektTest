@@ -36,10 +36,10 @@ class DagligSkaevTest {
         double ac4 = dagligSkaev3.samletDosis();
 
 
-        assertEquals(4, ac1);
+        assertEquals(6, ac1);
         assertEquals(0, ac2);
-        assertEquals(-80, ac3);
-        assertEquals(-36, ac4);
+        assertEquals(-40, ac3);
+        assertEquals(-48, ac4);
 
 
 
