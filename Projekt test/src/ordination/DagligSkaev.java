@@ -15,7 +15,7 @@ public class DagligSkaev extends Ordination {
 
     public DagligSkaev(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
                        LocalTime[] klokkeSlet, double[] antalEnheder) {
-        super(startDen,slutDen, patient, laegemiddel);
+        super(startDen,slutDen);
         for (int i = 0; i < klokkeSlet.length; i++){
             opretDosis(klokkeSlet[i],antalEnheder[i]);
         }

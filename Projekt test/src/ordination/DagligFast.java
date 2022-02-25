@@ -12,7 +12,7 @@ public class DagligFast extends Ordination {
 
     public DagligFast(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, double morgenAntal,
                       double middagsAntal, double aftenAntal, double natAntal){
-        super(startDen,slutDen, patient, laegemiddel);
+        super(startDen,slutDen);
         doser[0] = new Dosis(LocalTime.of(8,0),morgenAntal);
         doser[1] = new Dosis(LocalTime.of(12,0),middagsAntal);
         doser[2] = new Dosis(LocalTime.of(18,0),aftenAntal);
@@ -54,4 +54,5 @@ public class DagligFast extends Ordination {
     public String getType() {
         return getLaegemiddel().getEnhed();
     }
+
 }
