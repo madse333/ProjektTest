@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -63,4 +64,24 @@ void setup(){
 
 
 
+
+    @Test
+    public void antalOrdinationerPrVægtPrLægemiddel() {
+        Patient patient1 = controller.opretPatient("121256-0512", "Jane Jensen", 20);
+        Patient patient2 = controller.opretPatient("070985-1153", "Finn Madsen", 50);
+        Patient patient3 = controller.opretPatient("050972-1233", "Hans Jørgensen", 121);
+
+        Laegemiddel laegemiddel1  = controller.opretLaegemiddel("testmiddel", 0.5, 1, 2, "Styk");
+
+        controller.opretDagligFastOrdination(LocalDate.of(2010,01,01),LocalDate.of(2010,01,10),patient1, laegemiddel1, 1, 1, 1, 1);
+        controller.opretDagligFastOrdination(LocalDate.of(2010,01,01),LocalDate.of(2010,01,10),patient2, laegemiddel1, 1, 1, 1, 1);
+        controller.opretDagligFastOrdination(LocalDate.of(2010,01,01),LocalDate.of(2010,01,10),patient3, laegemiddel1, 1, 1, 1, 1);
+        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(0,25,laegemiddel1),0.01);
+        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(26,120,laegemiddel1),0.01);
+        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(121,150,laegemiddel1),0.01);
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->{
+            controller.antalOrdinationerPrVægtPrLægemiddel(-1,25,laegemiddel1);
+        });
+        assertEquals("Start vægt er for lille (mindre end 0)", ex.getMessage());
+    }
 }

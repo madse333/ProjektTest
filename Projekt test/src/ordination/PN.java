@@ -25,12 +25,12 @@ public class PN extends Ordination{
      */
 
     public boolean givDosis(LocalDate givesDen){
-        if((givesDen.isEqual(getStartDen()) && givesDen.isBefore(getSlutDen())) || givesDen.isAfter(getStartDen())
-                && givesDen.isEqual(getSlutDen())){
+        if(givesDen.isBefore(getSlutDen()) && givesDen.isAfter(getStartDen())
+                || (givesDen.equals(getSlutDen()) || givesDen.equals(getStartDen()))){
             dageGivet.add(givesDen);
             antalGangeGivet++;
             return true;
-        } else
+        }
 
         return false;
     }
