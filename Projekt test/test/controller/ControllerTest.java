@@ -15,23 +15,29 @@ Controller controller;
 void setup(){
     controller = Controller.getTestController();
 
-
 }
     @Test
     void anbefaletDosisPrDoegn() {
-        double actualResult = controller.anbefaletDosisPrDoegn(new Patient("121256-0512", "Jane Jensen", 24), new Laegemiddel("Acetylsalicylsyre", 0.5, 1.0, 2.0, "Styk"));
-        assertEquals(12, actualResult, 0.0001);
+        // Arrange
+        Patient patient1 = new Patient("121256-0512", "Jane Jensen", 24);
+        Patient patient2 = new Patient("2712028301", "Jane jensen", 26);
+        Patient patient3 = new Patient("2712028301", "Jane jensen", 125);
+        Patient patient4 = new Patient("2712028301", "Jane jensen", -10);
 
-        double result = controller.anbefaletDosisPrDoegn(new Patient("2712028301", "Jane jensen", 26), new Laegemiddel("Acetylsalicylsyre", 0.5, 1.0, 2.0, "Styk"));
-        assertEquals(26, result, 0.0001);
+        Laegemiddel laegemiddel = new Laegemiddel("Acetylsalicylsyre", 0.5,
+                1.0, 2.0, "Styk");
 
-        double r = controller.anbefaletDosisPrDoegn(new Patient("2712028301", "Jane jensen", 125), new Laegemiddel("Acetylsalicylsyre", 0.5, 1.0, 2.0, "Styk"));
+        // Act
+        double TC1 = controller.anbefaletDosisPrDoegn(patient1,laegemiddel);
+        double TC2 = controller.anbefaletDosisPrDoegn(patient2,laegemiddel);
+        double TC3 = controller.anbefaletDosisPrDoegn(patient3,laegemiddel);
+        double TC4 = controller.anbefaletDosisPrDoegn(patient4,laegemiddel);
 
-        assertEquals(250, r, 0.0001);
-
-        double testCase = controller.anbefaletDosisPrDoegn(new Patient("2712028301", "Jane jensen", 0), new Laegemiddel("Acetylsalicylsyre", 0.5, 1.0, 2.0, "Styk"));
-
-        assertEquals(0, testCase, 0.0001);
+        // Assert
+        assertEquals(12, TC1);
+        assertEquals(26, TC2);
+        assertEquals(250, TC3);
+        assertEquals(-5, TC4);
 
 
 

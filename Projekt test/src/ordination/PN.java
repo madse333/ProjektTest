@@ -25,7 +25,7 @@ public class PN extends Ordination{
      */
 
     public boolean givDosis(LocalDate givesDen){
-        if(givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen())){
+        if(givesDen.isEqual(getStartDen()) && givesDen.isBefore(getSlutDen())){
             dageGivet.add(givesDen);
             antalGangeGivet++;
             return true;
