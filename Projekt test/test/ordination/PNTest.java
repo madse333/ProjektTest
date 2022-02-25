@@ -43,15 +43,42 @@ class PNTest {
                 patient, laegemiddel, 2);
 
         // Act
-        double TC5 = pn.doegnDosis();
+        double TC1 = pn.doegnDosis();
 
         // Assert
-        assertEquals(0,TC5);
+        assertEquals(0,TC1);
 
     }
 
     @org.junit.jupiter.api.Test
     void samletDosis() {
+        // Arrange
+        Patient patient = new Patient("050972-1233", "Hans Jørgensen", 89.4);
+
+        Laegemiddel laegemiddel = new Laegemiddel("Acetylsalicylsyre",0.5,1,
+                1,"Styk");
+
+        PN pn = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,2),
+                patient, laegemiddel, 1);
+        pn.setAntalGangeGivet(1);
+
+        PN pn1 = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,1),
+                patient,laegemiddel,1);
+        pn1.setAntalGangeGivet(1);
+
+        PN pn2 = new PN(LocalDate.of(2010,2,1),LocalDate.of(2010,2,1),
+                patient,laegemiddel,-1);
+        pn2.setAntalGangeGivet(3);
+
+        // Act
+        double TC1 = pn.samletDosis();
+        double TC2 = pn1.samletDosis();
+        double TC4 = pn2.samletDosis();
+
+        // Assert
+        assertEquals(1,TC1);
+        assertEquals(1,TC2);
+        assertEquals(-3,TC4);
 
     }
 
