@@ -51,7 +51,7 @@ public class PN extends Ordination{
 
     /**
      * Returnerer antal gange ordinationen er anvendt
-     * @return
+     * @return antalGangeGivet
      */
     public int getAntalGangeGivet() {
         return dageGivet.size();
