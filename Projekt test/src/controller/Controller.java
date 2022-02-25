@@ -130,11 +130,14 @@ public class Controller {
 	public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
 			double vægtSlut, Laegemiddel laegemiddel) {
 		int antal = 0;
-		for (Patient p : storage.getAllPatienter()) {
-			if (p.getVaegt() >= vægtStart && p.getVaegt() <= vægtSlut) {
-				for (Ordination o : p.getOrdinationer()){
-					if (o.getLaegemiddel() == laegemiddel){
-						antal++;
+		if(vægtStart < 0) throw new IllegalArgumentException("Start vægt er for lille (mindre end 0)");
+		else{
+			for (Patient p : storage.getAllPatienter()) {
+				if (p.getVaegt() >= vægtStart && p.getVaegt() <= vægtSlut) {
+					for (Ordination o : p.getOrdinationer()){
+						if (o.getLaegemiddel() == laegemiddel){
+							antal++;
+						}
 					}
 				}
 			}
