@@ -44,5 +44,18 @@ class DagligSkaevTest {
 
     @Test
     void doegnDosis() {
+        Patient patient1 = new Patient("050972-1233", "Hans Jørgensen", 89.4);
+        Laegemiddel laegemiddel = new Laegemiddel("Acetylsalicylsyre",0.5,1,
+                2,"Styk");
+        double[] enhed1 = {1.0,1.0,1.0,1.0};
+        LocalTime[] times = {LocalTime.of(10, 0), LocalTime.of(10,0), LocalTime.of(10,0), LocalTime.of(10,0)};
+        DagligSkaev dagligSkaev = new DagligSkaev(LocalDate.of(2010, 01, 01), LocalDate.of(2010, 01, 05), patient1, laegemiddel, times, enhed1);
+
+
+        double ac1 = dagligSkaev.doegnDosis();
+
+        assertEquals(4, ac1);
+
+
     }
 }
