@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -60,25 +61,23 @@ void setup(){
         assertEquals("Forkert dato.", ex.getMessage());
     }
 
-    /*@Test
+    @Test
     public void antalOrdinationerPrVægtPrLægemiddel() {
-        Patient patient1 = controller.opretPatient("121256-0512", "Jane Jensen", 63.4);
-        Patient patient2 = controller.opretPatient("070985-1153", "Finn Madsen", 83.2);
-        Patient patient3 = controller.opretPatient("050972-1233", "Hans Jørgensen", 89.4);
-        Patient patient4 = controller.opretPatient("011064-1522", "Ulla Nielsen", 59.9);
-        Patient patient5 = controller.opretPatient("090149-2529", "Ib Hansen", 87.7);
+        Patient patient1 = controller.opretPatient("121256-0512", "Jane Jensen", 20);
+        Patient patient2 = controller.opretPatient("070985-1153", "Finn Madsen", 50);
+        Patient patient3 = controller.opretPatient("050972-1233", "Hans Jørgensen", 121);
 
-        Laegemiddel laegemiddel1  = controller.opretLaegemiddel("Acetylsalicylsyre", 0.1, 0.15, 0.16, "Styk");
-        Laegemiddel laegemiddel2  = controller.opretLaegemiddel("Paracetamol", 1, 1.5, 2, "Ml");
-        Laegemiddel laegemiddel3  = controller.opretLaegemiddel("Fucidin", 0.025, 0.025, 0.025, "Styk");
-        Laegemiddel laegemiddel4  = controller.opretLaegemiddel("Methotrexat", 0.01, 0.015, 0.02, "Styk");
-        LocalTime[] kl = {LocalTime.of(12, 0), LocalTime.of(12, 40),
-                LocalTime.of(16, 0), LocalTime.of(18, 45)};
-        double[] an = {0.5, 1, 2.5, 3};
-        controller.opretDagligSkaevOrdination(LocalDate.of(2022,02,23),LocalDate.of(2022,02,24),patient1,laegemiddel1,kl,an);
+        Laegemiddel laegemiddel1  = controller.opretLaegemiddel("testmiddel", 0.5, 1, 2, "Styk");
 
-        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(25,90,laegemiddel1),0.01);
-        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(0,65,laegemiddel1),0.01);
-        assertEquals(0,controller.antalOrdinationerPrVægtPrLægemiddel(80,120,laegemiddel1),0.01);
-    }*/
+        controller.opretDagligFastOrdination(LocalDate.of(2010,01,01),LocalDate.of(2010,01,10),patient1, laegemiddel1, 1, 1, 1, 1);
+        controller.opretDagligFastOrdination(LocalDate.of(2010,01,01),LocalDate.of(2010,01,10),patient2, laegemiddel1, 1, 1, 1, 1);
+        controller.opretDagligFastOrdination(LocalDate.of(2010,01,01),LocalDate.of(2010,01,10),patient3, laegemiddel1, 1, 1, 1, 1);
+        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(0,25,laegemiddel1),0.01);
+        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(26,120,laegemiddel1),0.01);
+        assertEquals(1,controller.antalOrdinationerPrVægtPrLægemiddel(121,150,laegemiddel1),0.01);
+        Exception ex = assertThrows(IllegalArgumentException.class, () ->{
+            controller.antalOrdinationerPrVægtPrLægemiddel(-1,25,laegemiddel1);
+        });
+        assertEquals("Start vægt er for lille (mindre end 0)", ex.getMessage());
+    }
 }
