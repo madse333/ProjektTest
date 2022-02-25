@@ -57,6 +57,10 @@ public class PN extends Ordination{
         return dageGivet.size();
     }
 
+    public void setAntalGangeGivet(int antalGangeGivet) {
+        this.antalGangeGivet = antalGangeGivet;
+    }
+
     public String getType(){
         return getLaegemiddel().getEnhed();
     }
