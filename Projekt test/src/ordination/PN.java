@@ -28,7 +28,7 @@ public class PN extends Ordination{
         if(givesDen.isBefore(getSlutDen()) && givesDen.isAfter(getStartDen())
                 || (givesDen.equals(getSlutDen()) || givesDen.equals(getStartDen()))){
             dageGivet.add(givesDen);
-            antalGangeGivet++;
+            //antalGangeGivet++;
             return true;
         }
 
@@ -37,7 +37,7 @@ public class PN extends Ordination{
 
     public double doegnDosis() {
         if (!dageGivet.isEmpty()) {
-            return (antalGangeGivet * antalEnheder) / (double) ChronoUnit.DAYS.between(getStartDen(), dageGivet.get(dageGivet.size()-1));
+            return (dageGivet.size() * antalEnheder) / (double) ChronoUnit.DAYS.between(getStartDen(), dageGivet.get(dageGivet.size()-1));
         }
         else{
             return 0;

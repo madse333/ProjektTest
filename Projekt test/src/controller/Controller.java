@@ -100,7 +100,7 @@ public class Controller {
 		if (!ordination.givDosis(dato)){
 			throw new IllegalArgumentException("Forkert dato.");
 		}else{
-			return ordination.givDosis(dato);
+			return true;
 		}
 	}
 
